@@ -99,6 +99,7 @@ class MarginManager(PandaNode):
         if v9:
             if v9.m_cell >= 0:
                 self.hide(v9.m_cell)
+                v9.m_cell = -1
 
             a2.setManaged(False)
             del self.m_popups[a2]
@@ -108,7 +109,8 @@ class MarginManager(PandaNode):
         cell = self.m_cells[a2]
         cell.m_np.removeNode()
         cell.m_time = globalClock.getFrameTime()
-        cell.m_popup.setVisible(False)
+        if cell.m_popup:
+            cell.m_popup.setVisible(False)
 
     def show(self, popup, cell_index):
         v12 = self.m_cells[cell_index]

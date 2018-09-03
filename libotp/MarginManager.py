@@ -170,6 +170,7 @@ class MarginManager(PandaNode):
         for handle in v4[self.m_num_available:]:
             if handle[0].m_popup.isVisible():
                 self.hide(handle[0].m_cell)
+                handle[0].m_cell = -1
 
         cells = []
         for i, cell in enumerate(self.m_cells):

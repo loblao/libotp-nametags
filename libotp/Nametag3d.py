@@ -105,9 +105,7 @@ class Nametag3d(Nametag, PandaNode):
         balloon_color = NametagGlobals.getChatBg(self.m_group.getColorCode(), v5)
 
         if self.m_group.m_chat_flags & CFQuicktalker:
-            qt = self.m_group.getQtColor()
-            text_color = Vec4(text_color[0] * qt[0], text_color[1] * qt[1],
-                              text_color[2] * qt[2], text_color[3] * qt[3])
+            balloon_color = self.m_group.getQtColor()
 
         text = self.m_group.getChat()
         has_page_button = False

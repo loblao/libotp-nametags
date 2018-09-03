@@ -1,0 +1,101 @@
+typedef struct {
+  vtable_generic_typed* vtable_typed; // 0
+  void* field_4; // 4
+  vtable_generic_refcount* vtable_refcount; // 8
+  int refcount; // 12
+  void* weak_ptr_list; // 16
+  __string _name; // 20
+  bool _is_valid; // 48
+  float _line_height; // 52
+  float _space_advance; // 56
+  void* _invalid_glyph; // 60
+} TextFont;
+
+typedef struct {
+  vtable_generic_typed* vtable_typed; // 0
+  void* field_4; // 4
+  void* field_8; // 8
+  __string _name; // 12
+  void* _prev; // 40
+  void* _next; // 44
+  void* vbtable; // 48
+  char paths_and_mutex_junk[48]; // 52
+  void* _state; // 100
+  TransformState* _transform; // 104
+  TransformState* _prev_transform; // 108
+  void* _effects; // 112
+  char tag_junk[48]; // 116
+  int _draw_control_mask; // 164
+  int _draw_show_mask; // 168
+  int _into_collide_mask; // 172
+  int _bounds_type; // 176
+  void* _user_bounds; // 180
+  int _final_bounds; // 184
+  int _fancy_bits; // 188
+  int _net_collide_mask; // 192
+  int _net_draw_control_mask; // 196
+  int _net_draw_show_mask; // 200
+  void* _off_clip_planes; // 204
+  int _nested_vertices; // 208
+  void* _external_bounds; // 212
+  int _last_update; // 216
+  int _next_update; // 220
+  void* _down; // 224
+  void* _stashed; // 228
+  void* _up; // 232
+
+  int _TextEncoder_flags; // 236
+  int _TextEncoder_encoding; // 240
+  __string __TextEncoder_text; // 244
+  __string _TextEncoder_wtext; // 272
+
+  int _TextProperties_specified; // 300
+  TextFont* _TextProperties_font; // 304
+  int _TextProperties_small_caps; // 308
+  float _TextProperties_small_caps_scale; // 312
+  float _TextProperties_slant; // 316
+  int _TextProperties_underscore; // 320
+  float _TextProperties_underscore_height; // 324
+  int _TextProperties_align; // 328
+  float _TextProperties_indent_width; // 332
+  float _TextProperties_wordwrap_width; // 336
+  int _TextProperties_preserve_trailing_whitespace; // 340
+  Vec4 _TextProperties_text_color; // 344
+  Vec4 _TextProperties_shadow_color; // 360
+  float _TextProperties_shadow_offset[2]; // 376
+  __string _TextProperties_bin; // 384
+  int _TextProperties_draw_order; // 412
+  float _TextProperties_tab_width; // 416
+  float _TextProperties_glyph_scale; // 420
+  float _TextProperties_glyph_shift; // 424
+  float _TextProperties_text_scale; // 428
+
+  PandaNode* _internal_geom; // 432
+  void* _card_texture; // 436
+  Vec4 _frame_color; // 440
+  Vec4 _card_color; // 456
+  int _flags; // 472
+  int _max_rows; // 476
+  int _usage_hint; // 480
+  int _flatten_flags; // 484
+  int _dynamic_merge; // 488
+  float _frame_width; // 492
+  float _card_border_size; // 496
+  float _card_border_uv_portion; // 500
+  float _frame_ul[2]; // 504
+  float _frame_lr[2]; // 512
+  float _card_ul[2]; // 520
+  float _card_lr[2]; // 528
+  Mat4 _TextNode_transform_mat; // 534
+  int _coordinate_system; // 600
+  Vec3 _ul3d; // 604
+  Vec3 _lr3d; // 616
+  float _text_ul[2]; // 628
+  float _text_lr[2]; // 636
+  int _num_rows; // 644
+  __string _wordwrapped_wtext; // 648
+
+  vtable_generic_refcount* vtable_refcount; // 676
+  int refcount; // 680
+  void* weak_ptr_list; // 684
+} TextNode;

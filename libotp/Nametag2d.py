@@ -217,7 +217,7 @@ class Nametag2d(Nametag, MarginPopup):
         self.m_copied_np.setMat(a3)
         if self.m_has_draw_order:
             bin = config.GetString('nametag-fixed-bin', 'fixed')
-            self.m_copied_np.setBin(bin, bin, self.m_draw_order)
+            self.m_copied_np.setBin(bin, self.m_draw_order)
 
         self.m_copied_np.setColor(v84)
         if v84[3] != 1.0:
@@ -231,7 +231,7 @@ class Nametag2d(Nametag, MarginPopup):
             self.m_arrow = NametagGlobals._arrow_model.copyTo(self.m_np)
             if self.m_has_draw_order:
                 bin = config.GetString('nametag-fixed-bin', 'fixed')
-                self.m_arrow.setBin(bin, bin, self.m_draw_order)
+                self.m_arrow.setBin(bin, self.m_draw_order)
 
             self.m_trans_vec = a3.xformPoint(Point3(0, 0, v68 - 1.0))
 

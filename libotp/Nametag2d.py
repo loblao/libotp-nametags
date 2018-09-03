@@ -211,7 +211,7 @@ class Nametag2d(Nametag, MarginPopup):
 
             if self.m_has_draw_order:
                 bin = config.GetString('nametag-fixed-bin', 'fixed')
-                self.m_attached_np.setBin(bin, bin, self.m_draw_order)
+                self.m_attached_np.setBin(bin, self.m_draw_order)
 
         self.m_copied_np = self.m_group.copyNameTo(self.m_np)
         self.m_copied_np.setMat(a3)

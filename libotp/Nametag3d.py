@@ -172,6 +172,7 @@ class Nametag3d(Nametag, PandaNode):
             if v47:
                 self.m_np_360 = self.m_group.copyNameTo(v47)
                 self.m_np_360.setDepthWrite(0)
+                self.m_np_360.setY(-0.01)  # Panda3D 1.10 hack to prevent z-fighting.
                 v47.node().setEffect(DecalEffect.make())
 
             else:

@@ -196,6 +196,7 @@ class ChatBalloon:
         v144 = np.attachNewNode(generated_text)
         v144.setPos((v137, v138, v139))
         v144.setColor(text_color)
+        v144.setY(-0.01)  # Panda3D 1.10 hack to prevent z-fighting.
         if text_color[3] != 1.0:
             v144.setTransparency(1)
 

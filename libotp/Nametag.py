@@ -1,9 +1,6 @@
 from ClickablePopup import *
 from _constants import *
 
-import NametagGlobals
-
-
 
 class Nametag(ClickablePopup):
     CName = 1
@@ -186,3 +183,6 @@ class Nametag(ClickablePopup):
             self.m_has_region = False
             self.m_mouse_watcher = None
             self.setState(PGButton.SReady)
+
+    def upcastToPandaNode(self):
+        return self

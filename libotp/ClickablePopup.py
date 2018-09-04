@@ -1,16 +1,15 @@
 from direct.showbase.DirectObject import DirectObject
-
 from panda3d.core import *
 
 import NametagGlobals
 
 
 class PopupMouseWatcherRegion(MouseWatcherRegion):
-    '''
+    """
     This is an ultra hacky class!
     The correct implementation of PopupMouseWatcherRegion cannot be done in Python.
     This also assumes that m_mouse_watcher is NametagGlobals::_mouse_watcher.
-    '''
+    """
 
     class _Param:
         def __init__(self, outside=False):
@@ -40,7 +39,8 @@ class PopupMouseWatcherRegion(MouseWatcherRegion):
         self.slaveObject = DirectObject()
         self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getEnterPattern()), self.__mouseEnter)
         self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getLeavePattern()), self.__mouseLeave)
-        self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getButtonDownPattern()), self.__buttonDown)
+        self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getButtonDownPattern()),
+                                self.__buttonDown)
         self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getButtonUpPattern()), self.__buttonUp)
 
     def __mouseEnter(self, region, extra):
@@ -82,13 +82,13 @@ class ClickablePopup:
         self.setState(PGButton.SReady)
 
     def press(self, arg):
-        if True: # arg.getButton() == MouseButton.one():
+        if True:  # arg.getButton() == MouseButton.one():
             if NametagGlobals._click_sound:
                 NametagGlobals._click_sound.play()
                 self.setState(PGButton.SDepressed)
 
     def release(self, arg):
-        if True: # arg.getButton() == MouseButton.one():
+        if True:  # arg.getButton() == MouseButton.one():
             if arg.isOutside():
                 self.setState(PGButton.SReady)
 

@@ -1,11 +1,10 @@
+import math
+
 from panda3d.core import *
 
+import NametagGlobals
 from Nametag import Nametag
 from _constants import *
-
-import NametagGlobals
-
-import math
 
 
 class Nametag3d(Nametag, PandaNode):
@@ -29,6 +28,7 @@ class Nametag3d(Nametag, PandaNode):
         self.m_is_3d = 1
         self.m_field_396 = 0
         self.m_name_frame = Vec4(0, 0, 0, 0)
+        self.m_chat_contents = None
 
         self.setBounds(BoundingSphere((0, 0, 0), 2.0))
 
@@ -94,10 +94,10 @@ class Nametag3d(Nametag, PandaNode):
                 self.generateName()
 
     def release(self, arg):
-        if True: # arg.getButton() == MouseButton.one():
-             self.setState(PGButton.SRollover)
-             if self.m_group:
-                 self.m_group.click()
+        if True:  # arg.getButton() == MouseButton.one():
+            self.setState(PGButton.SRollover)
+            if self.m_group:
+                self.m_group.click()
 
     def generateChat(self, balloon):
         v5 = self.getState()
@@ -248,7 +248,7 @@ class Nametag3d(Nametag, PandaNode):
 
                 else:
                     v40 = v129 - 1.0
-                    if abs(v40) > 0.0: # if ( v40 >= 1.0e-12 || v40 <= -1.0e-12 ) NOT ALMOST ZERO
+                    if abs(v40) > 0.0:  # if ( v40 >= 1.0e-12 || v40 <= -1.0e-12 ) NOT ALMOST ZERO
                         v41 = 1.0 / math.sqrt(v129)
                         v38 *= v41
                         v125 *= v41
@@ -345,12 +345,18 @@ class Nametag3d(Nametag, PandaNode):
                         v89 = 1
 
                     if v123:
-                        if frame[3] > v110: v110 = frame[3]
-                        if frame[2] >= v127: v115 = v127
-                        else: v115 = frame[2]
-                        if frame[1] <= v131: v116 = v131
-                        else: v116 = frame[1]
-                        if frame[0] >= v146: frame[0] = v146
+                        if frame[3] > v110:
+                            v110 = frame[3]
+                        if frame[2] >= v127:
+                            v115 = v127
+                        else:
+                            v115 = frame[2]
+                        if frame[1] <= v131:
+                            v116 = v131
+                        else:
+                            v116 = frame[1]
+                        if frame[0] >= v146:
+                            frame[0] = v146
 
                         frame[1] = v116
                         frame[2] = v115

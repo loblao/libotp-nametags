@@ -3,23 +3,23 @@ from panda3d.core import *
 
 class PopupHandle:
     def __init__(self, popup):
-        self.m_popup = popup # 12
-        self.m_cell = -1 # 16
-        self.m_wants_visible = False # 20
-        self.m_score = 0 # 24
-        self.m_objcode = id(self) # 28
+        self.m_popup = popup  # 12
+        self.m_cell = -1  # 16
+        self.m_wants_visible = False  # 20
+        self.m_score = 0  # 24
+        self.m_objcode = id(self)  # 28
         popup.setObjectCode(self.m_objcode)
 
 
 class MarginCell:
     def __init__(self):
-        self.m_mat = Mat4() # 0
-        self.m_cell_width = 0 # 64
-        self.m_popup = None # 68
-        self.m_np = None # 72
-        self.m_visible = False # 84
-        self.m_objcode = 0 # 88
-        self.m_time = 0 # 96
+        self.m_mat = Mat4()  # 0
+        self.m_cell_width = 0  # 64
+        self.m_popup = None  # 68
+        self.m_np = None  # 72
+        self.m_visible = False  # 84
+        self.m_objcode = 0  # 88
+        self.m_time = 0  # 96
 
 
 class MarginManager(PandaNode):
@@ -32,8 +32,8 @@ class MarginManager(PandaNode):
         self.addChild(self.cbNode)
 
         self.m_cells = []
-        self.m_popups = {} # MarginPopup*: PopupHandle
-        self.m_code_map = {} # code: MarginPopup*
+        self.m_popups = {}  # MarginPopup*: PopupHandle
+        self.m_code_map = {}  # code: MarginPopup*
         self.m_num_available = 0
 
     def addGridCell(self, a2, a3, a4, a5, a6, a7):
@@ -133,7 +133,7 @@ class MarginManager(PandaNode):
                 break
 
         else:
-            for cell in a3[::-1][1:]: # Iterate backwards, skip last item
+            for cell in a3[::-1][1:]:  # Iterate backwards, skip last item
                 v10 = self.m_cells[cell]
                 if (not v10.m_popup) or (now - v10.m_time) > 30.0:
                     result = cell
@@ -159,7 +159,6 @@ class MarginManager(PandaNode):
 
     def showVisibleResolveConflict(self):
         v4 = []
-        cells = []
 
         for handle in self.m_popups.values():
             score = 0

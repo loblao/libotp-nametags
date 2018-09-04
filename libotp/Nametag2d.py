@@ -1,12 +1,11 @@
+import math
+
 from panda3d.core import *
 
+import NametagGlobals
 from MarginPopup import MarginPopup
 from Nametag import Nametag
 from _constants import *
-
-import NametagGlobals
-
-import math
 
 
 class Nametag2d(Nametag, MarginPopup):
@@ -292,7 +291,7 @@ class Nametag2d(Nametag, MarginPopup):
 
         self.m_unknown_np = self.m_np.attachNewNode(balloon_result)
 
-        v88 = 8.0 # XXX THIS IS A GUESS
+        v88 = 8.0  # XXX THIS IS A GUESS
         v49 = 2 * self.m_cell_width
         a6 = v49 / (v88 + 1.0)
         v50 = balloon.m_text_height * balloon.m_hscale
@@ -312,7 +311,7 @@ class Nametag2d(Nametag, MarginPopup):
 
         v66 = self.m_np.getNetTransform().getMat()
 
-        ### XXX THE LINES BELOW ARE A GUESS
+        # XXX THE LINES BELOW ARE A GUESS
         v67 = v113 * a6
         v68 = v51 * a6
         v94 = v66.xformPoint(Point3(v67, 0.0, v68))

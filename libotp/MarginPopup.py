@@ -1,6 +1,5 @@
 from panda3d.core import *
 
-from NametagGlobals import *
 import NametagGlobals
 
 

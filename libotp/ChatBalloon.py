@@ -7,8 +7,11 @@ class ChatBalloon:
     def __init__(self, node=None):
         self.m_copy_node = None
         self.m_top_node = None
+        self.m_top_mat = None
         self.m_middle_node = None
+        self.m_middle_mat = None
         self.m_bottom_node = None
+        self.m_bottom_mat = None
 
         self.m_hscale = 0
         self.m_text_height = 0
@@ -76,12 +79,12 @@ class ChatBalloon:
             return True
 
         else:
-            print "ChatBalloon geometry does not include top, middle, and bottom nodes." # WARNING
+            print "ChatBalloon geometry does not include top, middle, and bottom nodes."  # WARNING
             return False
 
     def generate(self, text, font, wordwrap, text_color, balloon_color, for_3d,
                  has_draw_order, draw_order, page_button, space_for_button,
-                 reversed, new_button): # new_button is a pointer, let's use a list hack here
+                 reversed, new_button):  # new_button is a pointer, let's use a list hack here
         chat_node = PandaNode('chat')
         chat_node.setAttrib(CullFaceAttrib.make(0))
         text_node = NametagGlobals.getTextNode()
@@ -92,7 +95,7 @@ class ChatBalloon:
 
         v116 = NametagGlobals._balloon_text_origin[0]
         if reversed:
-          v116 = v116 + 9.0
+            v116 = v116 + 9.0
 
         v27 = (text_node.getRight() - text_node.getLeft()) * 0.11111111
         self.m_hscale = v27
@@ -119,9 +122,9 @@ class ChatBalloon:
 
         num_rows_minus_1 = num_rows - 1
         subgraph_copy_mat = Mat4(self.m_hscale, 0, 0, 0,
-                                  0, 1.0, 0, 0,
-                                  0, 0, 1.0, 0,
-                                  0, 0, 0, 1.0)
+                                 0, 1.0, 0, 0,
+                                 0, 0, 1.0, 0,
+                                 0, 0, 0, 1.0)
         text_h = _num_rows * line_h + _space
         self.m_text_height = text_h
 

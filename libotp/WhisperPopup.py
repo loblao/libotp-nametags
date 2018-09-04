@@ -22,6 +22,7 @@ class WhisperPopup(ClickablePopup, MarginPopup):
         self.m_avname = ''
         self.m_region = None
         self.m_mouse_watcher = None
+        self.m_manager = None
 
         # self.setCullCallback()
         self.cbNode = CallbackNode(self.getName() + '-cbNode')
@@ -33,6 +34,7 @@ class WhisperPopup(ClickablePopup, MarginPopup):
         self.m_clickable = False
         self.m_avid = 0
         self.m_is_player = False
+        self.m_is_player_id = None
         self.m_state = 3
         self.m_objcode = 0
 
@@ -129,7 +131,7 @@ class WhisperPopup(ClickablePopup, MarginPopup):
         if self.m_clickable:
             v22 = self.m_np.getNetTransform().getMat()
             v39, _, v41 = v22.xformPoint(Point3(v57 * v34, 0.0, v16 * v34))
-            v27, _, v28  = v22.xformPoint(Point3(-v57 * v34, 0.0, -v16 * v34))
+            v27, _, v28 = v22.xformPoint(Point3(-v57 * v34, 0.0, -v16 * v34))
             self.setRegion(Vec4(v39, v27, v41, v28), 0)
 
     def setObjectCode(self, objcode):

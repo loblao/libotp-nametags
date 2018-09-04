@@ -1,10 +1,9 @@
 from panda3d.core import *
 
+import NametagGlobals
 from Nametag2d import Nametag2d
 from Nametag3d import Nametag3d
 from _constants import *
-
-import NametagGlobals
 
 
 class NametagGroup:
@@ -47,11 +46,13 @@ class NametagGroup:
         self.m_balloon_color = NametagGlobals._balloon_modulation_color
         self.m_shadow = (0, 0)
         self.m_has_shadow = False
+        self.shadow = None
 
         self.m_timeout = 0.0
         self.m_timeout_start = 0.0
         self.m_has_timeout = False
         self.m_stomp_time = 0.0
+        self.m_stomp_chat_flags = None
         self.m_chat_flags = 0
         self.m_page_number = 0
         self.m_stomp_delay = 0.5

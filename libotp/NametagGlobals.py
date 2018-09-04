@@ -53,7 +53,9 @@ _min_2d_alpha = 0.0
 
 def setMin2dAlpha(min_2d_alpha):
     global _min_2d_alpha
+    global _margin_prop_seq
     _min_2d_alpha = min_2d_alpha
+    _margin_prop_seq += 1
 
 
 def getMin2dAlpha():
@@ -142,7 +144,9 @@ _max_2d_alpha = 0.6
 
 def setMax2dAlpha(max_2d_alpha):
     global _max_2d_alpha
+    global _margin_prop_seq
     _max_2d_alpha = max_2d_alpha
+    _margin_prop_seq += 1
 
 
 def getMax2dAlpha():

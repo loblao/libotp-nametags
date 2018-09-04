@@ -167,7 +167,7 @@ class Nametag(ClickablePopup):
                 self.setState(PGButton.SReady)
 
         if is_active:
-            if not self.m_has_region:
+            if (not self.m_has_region) and self.m_popup_region:
                 if self.m_mouse_watcher != NametagGlobals._mouse_watcher:
                     self.m_mouse_watcher = NametagGlobals._mouse_watcher
 
@@ -177,7 +177,7 @@ class Nametag(ClickablePopup):
                 self.m_has_region = True
 
         elif self.m_has_region:
-            if self.m_mouse_watcher:
+            if self.m_mouse_watcher and self.m_popup_region:
                 self.m_mouse_watcher.removeRegion(self.m_popup_region)
 
             self.m_has_region = False

@@ -80,7 +80,7 @@ class Nametag(ClickablePopup):
     def getAvatar(self):
         return self.m_avatar
 
-    def setChatWordwrap(self):
+    def setChatWordwrap(self, wordwrap):
         self.m_wordwrap = wordwrap
 
     def getChatWordwrap(self):

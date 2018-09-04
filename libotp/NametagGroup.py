@@ -46,7 +46,6 @@ class NametagGroup:
         self.m_balloon_color = NametagGlobals._balloon_modulation_color
         self.m_shadow = (0, 0)
         self.m_has_shadow = False
-        self.shadow = None
 
         self.m_timeout = 0.0
         self.m_timeout_start = 0.0
@@ -224,10 +223,10 @@ class NametagGroup:
         return self.m_region_seq
 
     def setShadow(self, shadow):
-        self.shadow = shadow
+        self.m_shadow = shadow
 
     def getShadow(self):
-        return self.shadow
+        return self.m_shadow
 
     def getStompDelay(self):
         return self.m_stomp_delay

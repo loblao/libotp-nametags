@@ -222,7 +222,6 @@ class Nametag3d(Nametag, PandaNode):
                 v32 = v25[0][1]
                 v33 = v25[0][0]
                 v136 = v25[0][2]
-                v135 = v32
                 v134 = v33
                 v127 = self.m_billboard_offset
                 v144 = math.sqrt(v136 * v136 + v32 * v32 + v134 * v134)

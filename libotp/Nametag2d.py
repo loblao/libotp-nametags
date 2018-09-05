@@ -257,6 +257,8 @@ class Nametag2d(Nametag, MarginPopup):
         v5 = self.getState()
         text_color = NametagGlobals.getChatFg(self.m_group.getColorCode(), v5)
         balloon_color = NametagGlobals.getChatBg(self.m_group.getColorCode(), v5)
+        balloon_color[3] = max(balloon_color[3], NametagGlobals._min_2d_alpha)
+        balloon_color[3] = min(balloon_color[3], NametagGlobals._max_2d_alpha)
 
         if self.m_group.m_chat_flags & CFQuicktalker:
             balloon_color = self.m_group.getQtColor()

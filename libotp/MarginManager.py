@@ -74,10 +74,13 @@ class MarginManager(PandaNode):
 
     def setCellAvailable(self, a2, a3):
         v5 = self.m_cells[a2]
-        if v5.m_available and not a3:
+        if v5.m_available:
             self.m_num_available -= 1
 
         v5.m_available = a3
+        if v5.m_available:
+            self.m_num_available += 1
+
         if v5.m_np:
             self.hide(a2)
             v5.m_popup = None

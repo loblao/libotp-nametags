@@ -214,6 +214,7 @@ class ChatBalloon:
                 button_copy.setPos(self.m_hscale * 9.0, 0, 1.8)
 
             button_copy.setScale(8.0, 8.0, 8.0)
+            button_copy.setY(-0.01)  # Panda3D 1.10 hack to prevent z-fighting.
 
         reducer = SceneGraphReducer()
         reducer.applyAttribs(generated_text)

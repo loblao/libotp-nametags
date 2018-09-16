@@ -370,6 +370,8 @@ class NametagGroup:
 
         if must_split:
             self.m_chat_pages = chat.split('\x07')
+        else:
+            self.m_chat_pages = []
 
         if self.m_chat_flags & CFTimeout and self.m_stomp_time < now:
             timeout = len(chat) * 0.5

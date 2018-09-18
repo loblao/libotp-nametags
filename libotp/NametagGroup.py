@@ -366,6 +366,7 @@ class NametagGroup:
 
         else:
             self.m_chat_flags = 0
+            self.m_chat_stomp = 0
             must_split = False
 
         if must_split:

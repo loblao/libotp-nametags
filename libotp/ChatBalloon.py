@@ -5,6 +5,9 @@ import NametagGlobals
 
 class ChatBalloon:
     def __init__(self, node=None):
+        if isinstance(node, NodePath):
+            node = node.node()
+        
         self.m_copy_node = None
         self.m_top_node = None
         self.m_top_mat = None

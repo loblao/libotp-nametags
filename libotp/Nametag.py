@@ -1,6 +1,7 @@
+from direct.interval.IntervalGlobal import *
+
 from ClickablePopup import *
 from _constants import *
-from direct.interval.IntervalGlobal import LerpColorInterval, Sequence
 
 
 class Nametag(ClickablePopup):
@@ -144,12 +145,10 @@ class Nametag(ClickablePopup):
         self.m_seq = self.m_group.getRegionSeq()
 
     def startFlash(self, np):
-        if self.m_ival:
-            self.m_ival.finish()
-            self.m_ival = None
-
-        self.m_ival = Sequence(LerpColorInterval(np, 0.5, (1, 1, 1, 0.5), (1, 1, 1, 1), blendType='easeOut'),
-                               LerpColorInterval(np, 0.5, (1, 1, 1, 1), (1, 1, 1, 0.5), blendType='easeIn'))
+        self.stopFlash()
+        self.m_ival = Sequence(
+            np.colorInterval(0.5, Vec4(1.0, 1.0, 1.0, 0.5), startColor=Vec4(1.0, 1.0, 1.0, 1.0), blendType='easeOut'),
+            np.colorInterval(0.5, Vec4(1.0, 1.0, 1.0, 1.0), startColor=Vec4(1.0, 1.0, 1.0, 0.5), blendType='easeIn'))
         self.m_ival.loop()
 
     def stopFlash(self):

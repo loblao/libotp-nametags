@@ -165,8 +165,9 @@ class NametagGroup:
             return self.m_wordwrap
 
         wordwrap = NametagGlobals.getNameWordwrap()
-        return {self.CCToonBuilding: 8.0,
-                self.CCSuitBuilding: 8.0,
+        return {self.CCNoChat: 7.8,
+                self.CCToonBuilding: 8.5,
+                self.CCSuitBuilding: 8.5,
                 self.CCHouseBuilding: 10.0}.get(self.m_color_code, wordwrap)
 
     def getNametag(self, index):

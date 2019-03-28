@@ -9,7 +9,7 @@ from _constants import *
 
 class Nametag3d(Nametag, PandaNode):
     def __init__(self):
-        Nametag.__init__(self, 10.0)
+        Nametag.__init__(self, 10.5)
         PandaNode.__init__(self, 'unnamed')
 
         self.m_np_360 = None

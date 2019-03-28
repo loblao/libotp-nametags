@@ -10,7 +10,7 @@ from _constants import *
 
 class Nametag2d(Nametag, MarginPopup):
     def __init__(self):
-        Nametag.__init__(self, 8.0)
+        Nametag.__init__(self, 8.075)
         MarginPopup.__init__(self)
 
         self.m_copied_np = None

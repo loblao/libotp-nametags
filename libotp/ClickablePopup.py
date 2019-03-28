@@ -82,13 +82,13 @@ class ClickablePopup:
         self.setState(PGButton.SReady)
 
     def press(self, arg):
-        if True:  # arg.getButton() == MouseButton.one():
+        if arg.getButton() == MouseButton.one():
             if NametagGlobals._click_sound:
                 NametagGlobals._click_sound.play()
                 self.setState(PGButton.SDepressed)
 
     def release(self, arg):
-        if True:  # arg.getButton() == MouseButton.one():
+        if arg.getButton() == MouseButton.one():
             if arg.isOutside():
                 self.setState(PGButton.SReady)
 

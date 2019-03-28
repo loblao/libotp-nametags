@@ -94,7 +94,7 @@ class Nametag3d(Nametag, PandaNode):
                 self.generateName()
 
     def release(self, arg):
-        if True:  # arg.getButton() == MouseButton.one():
+        if arg.getButton() == MouseButton.one():
             self.setState(PGButton.SRollover)
             if self.m_group:
                 self.m_group.click()

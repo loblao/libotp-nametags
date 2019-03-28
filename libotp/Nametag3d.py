@@ -101,11 +101,11 @@ class Nametag3d(Nametag, PandaNode):
 
     def generateChat(self, balloon):
         v5 = self.getState()
-        text_color = NametagGlobals.getChatFg(self.m_group.getColorCode(), v5)
-        balloon_color = NametagGlobals.getChatBg(self.m_group.getColorCode(), v5)
+        text_color = Vec4(NametagGlobals.getChatFg(self.m_group.getColorCode(), v5))
+        balloon_color = Vec4(NametagGlobals.getChatBg(self.m_group.getColorCode(), v5))
 
         if self.m_group.m_chat_flags & CFQuicktalker:
-            balloon_color = self.m_group.getQtColor()
+            balloon_color = Vec4(self.m_group.getQtColor())
 
         text = self.m_group.getChat()
         has_page_button = False
@@ -141,8 +141,8 @@ class Nametag3d(Nametag, PandaNode):
 
     def generateName(self):
         v4 = self.getState()
-        v56 = NametagGlobals.getNameFg(self.m_group.getColorCode(), v4)
-        v54 = NametagGlobals.getNameBg(self.m_group.getColorCode(), v4)
+        v56 = Vec4(NametagGlobals.getNameFg(self.m_group.getColorCode(), v4))
+        v54 = Vec4(NametagGlobals.getNameBg(self.m_group.getColorCode(), v4))
 
         self.m_name_frame = Vec4(*self.m_group.getNameFrame())
         self.m_name_frame[0] -= NametagGlobals._card_pad[0]

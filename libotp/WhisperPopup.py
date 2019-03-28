@@ -103,8 +103,8 @@ class WhisperPopup(ClickablePopup, MarginPopup):
             self.generateText(NametagGlobals._speech_balloon_2d, self.m_text, self.m_font)
 
     def generateText(self, balloon, text, font):
-        text_color = NametagGlobals.getWhisperFg(self.m_type, self.m_state)
-        balloon_color = NametagGlobals.getWhisperBg(self.m_type, self.m_state)
+        text_color = Vec4(NametagGlobals.getWhisperFg(self.m_type, self.m_state))
+        balloon_color = Vec4(NametagGlobals.getWhisperBg(self.m_type, self.m_state))
         balloon_color[3] = max(balloon_color[3], NametagGlobals._min_2d_alpha)
         balloon_color[3] = min(balloon_color[3], NametagGlobals._max_2d_alpha)
 

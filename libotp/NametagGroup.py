@@ -42,8 +42,8 @@ class NametagGroup:
 
         self.m_wordwrap = -1.0
         self.m_color_code = 0
-        self.m_qt_color = NametagGlobals._default_qt_color
-        self.m_balloon_color = NametagGlobals._balloon_modulation_color
+        self.m_qt_color = Vec4(NametagGlobals._default_qt_color)
+        self.m_balloon_color = Vec4(NametagGlobals._balloon_modulation_color)
         self.m_shadow = (0, 0)
         self.m_has_shadow = False
 

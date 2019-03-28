@@ -174,8 +174,8 @@ class Nametag2d(Nametag, MarginPopup):
 
     def generateName(self):
         v4 = self.getState()
-        v84 = NametagGlobals.getNameFg(self.m_group.getColorCode(), v4)
-        v75 = NametagGlobals.getNameBg(self.m_group.getColorCode(), v4)
+        v84 = Vec4(NametagGlobals.getNameFg(self.m_group.getColorCode(), v4))
+        v75 = Vec4(NametagGlobals.getNameBg(self.m_group.getColorCode(), v4))
         v75[3] = max(v75[3], NametagGlobals._min_2d_alpha)
         v75[3] = min(v75[3], NametagGlobals._max_2d_alpha)
 
@@ -234,7 +234,7 @@ class Nametag2d(Nametag, MarginPopup):
 
             self.m_trans_vec = a3.xformPoint(Point3(0, 0, v68 - 1.0))
 
-            color = NametagGlobals.getArrowColor(self.m_group.getColorCode())
+            color = Vec4(NametagGlobals.getArrowColor(self.m_group.getColorCode()))
             self.m_arrow.setColor(color)
             if color[3] != 1.0:
                 self.m_arrow.setTransparency(1)
@@ -255,11 +255,11 @@ class Nametag2d(Nametag, MarginPopup):
 
     def generateChat(self, balloon):
         v5 = self.getState()
-        text_color = NametagGlobals.getChatFg(self.m_group.getColorCode(), v5)
-        balloon_color = NametagGlobals.getChatBg(self.m_group.getColorCode(), v5)
+        text_color = Vec4(NametagGlobals.getChatFg(self.m_group.getColorCode(), v5))
+        balloon_color = Vec4(NametagGlobals.getChatBg(self.m_group.getColorCode(), v5))
 
         if self.m_group.m_chat_flags & CFQuicktalker:
-            balloon_color = self.m_group.getQtColor()
+            balloon_color = Vec4(self.m_group.getQtColor())
 
         balloon_color[3] = max(balloon_color[3], NametagGlobals._min_2d_alpha)
         balloon_color[3] = min(balloon_color[3], NametagGlobals._max_2d_alpha)

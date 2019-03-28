@@ -1,13 +1,16 @@
+from direct.directnotify import DirectNotifyGlobal
 from panda3d.core import *
 
 import NametagGlobals
 
 
 class ChatBalloon:
+    notify = DirectNotifyGlobal.directNotify.newCategory('ChatBalloon')
+
     def __init__(self, node=None):
         if isinstance(node, NodePath):
             node = node.node()
-        
+
         self.m_copy_node = None
         self.m_top_node = None
         self.m_top_mat = None
@@ -82,7 +85,7 @@ class ChatBalloon:
             return True
 
         else:
-            print "ChatBalloon geometry does not include top, middle, and bottom nodes."  # WARNING
+            self.notify.warning('ChatBalloon geometry does not include top, middle, and bottom nodes.')
             return False
 
     def generate(self, text, font, wordwrap, text_color, balloon_color, for_3d,

@@ -207,5 +207,5 @@ class MarginManager(PandaNode):
         else:
             self.showVisibleNoConflict()
 
-        for popup in self.m_popups:
+        for popup in self.m_popups.keys():
             popup.frameCallback()

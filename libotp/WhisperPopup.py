@@ -78,10 +78,12 @@ class WhisperPopup(ClickablePopup, MarginPopup):
         if self.m_clickable:
             if self.m_region:
                 if self.m_visible:
+                    self.m_region.activate()
                     self.m_mouse_watcher = NametagGlobals._mouse_watcher
                     self.m_mouse_watcher.addRegion(self.m_region)
 
                 elif self.m_mouse_watcher:
+                    self.m_region.deactivate()
                     self.m_mouse_watcher.removeRegion(self.m_region)
                     self.m_mouse_watcher = None
 

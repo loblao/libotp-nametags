@@ -42,6 +42,7 @@ class Nametag(ClickablePopup):
     def deactivate(self):
         if self.m_has_region:
             if self.m_mouse_watcher:
+                self.m_popup_region.deactivate()
                 self.m_mouse_watcher.removeRegion(self.m_popup_region)
                 self.m_mouse_watcher = None
 
@@ -166,6 +167,7 @@ class Nametag(ClickablePopup):
         if self.m_has_region:
             if self.m_mouse_watcher != NametagGlobals._mouse_watcher:
                 if self.m_mouse_watcher:
+                    self.m_popup_region.deactivate()
                     self.m_mouse_watcher.removeRegion(self.m_popup_region)
 
                 self.m_has_region = False
@@ -177,12 +179,14 @@ class Nametag(ClickablePopup):
                     self.m_mouse_watcher = NametagGlobals._mouse_watcher
 
                 if self.m_mouse_watcher:
+                    self.m_popup_region.activate()
                     self.m_mouse_watcher.addRegion(self.m_popup_region)
 
                 self.m_has_region = True
 
         elif self.m_has_region:
             if self.m_mouse_watcher and self.m_popup_region:
+                self.m_popup_region.deactivate()
                 self.m_mouse_watcher.removeRegion(self.m_popup_region)
 
             self.m_has_region = False

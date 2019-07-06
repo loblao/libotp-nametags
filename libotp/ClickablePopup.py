@@ -28,6 +28,7 @@ class PopupMouseWatcherRegion(MouseWatcherRegion):
 
         self.obj = obj
         self.__inside = False
+        self.__active = False
 
         if not self.MOUSE_WATCHER_SETUP:
             NametagGlobals._mouse_watcher.setEnterPattern('mouse-enter-%r')
@@ -37,11 +38,23 @@ class PopupMouseWatcherRegion(MouseWatcherRegion):
             self.MOUSE_WATCHER_SETUP = True
 
         self.slaveObject = DirectObject()
-        self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getEnterPattern()), self.__mouseEnter)
-        self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getLeavePattern()), self.__mouseLeave)
-        self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getButtonDownPattern()),
-                                self.__buttonDown)
-        self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getButtonUpPattern()), self.__buttonUp)
+        self.activate()
+
+    def activate(self):
+        if not self.__active:
+            self.__active = True
+
+            self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getEnterPattern()), self.__mouseEnter)
+            self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getLeavePattern()), self.__mouseLeave)
+            self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getButtonDownPattern()),
+                                    self.__buttonDown)
+            self.slaveObject.accept(self.__getEvent(NametagGlobals._mouse_watcher.getButtonUpPattern()), self.__buttonUp)
+
+    def deactivate(self):
+        if self.__active:
+            self.__active = False
+
+            self.slaveObject.ignoreAll()
 
     def __mouseEnter(self, region, extra):
         self.__inside = True

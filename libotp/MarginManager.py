@@ -1,5 +1,5 @@
 from panda3d.core import *
-
+from copy import deepcopy
 
 class PopupHandle:
     def __init__(self, popup):
@@ -190,8 +190,46 @@ class MarginManager(PandaNode):
     def update(self):
         num_want_visible = 0
 
+        conflicts = {}
+        for handle in self.m_popups.values():
+            group = handle.m_popup.m_group
+            if not group:
+                continue
+
+            if group.getColorCode() != group.CCToonBuilding:
+                continue
+
+            name = group.getDisplayName()
+            if name in conflicts:
+                conflicts[name][0] += 1
+                conflicts[name][1].append(handle)
+            else:
+                conflicts[name] = [1, [handle]]
+
+        for name, conflict in deepcopy(conflicts).iteritems():
+            if conflict[0] < 2:
+                del conflicts[name]
+
         for handle in self.m_popups.values():
             popup = handle.m_popup
+            group = popup.m_group
+            if group:
+                name = group.getDisplayName()
+                if name in conflicts:
+                    closer = True
+                    for conflict in conflicts[name][1]:
+                        if popup.getScore() < conflict.m_popup.getScore():
+                            handle.m_wants_visible = False
+                            if popup.isVisible():
+                                conflict.m_cell = handle.m_cell
+                                self.hide(handle.m_cell)
+                                self.show(conflict.m_popup, conflict.m_cell)
+                                handle.m_cell = -1
+                            closer = False
+                            continue
+                    if not closer:
+                        continue
+
             handle.m_wants_visible = popup.considerVisible()
             if handle.m_wants_visible and handle.m_objcode:
                 handle.m_score = popup.getScore()

@@ -1,5 +1,4 @@
 from panda3d.core import *
-from copy import deepcopy
 
 class PopupHandle:
     def __init__(self, popup):
@@ -7,8 +6,11 @@ class PopupHandle:
         self.m_cell = -1  # 16
         self.m_wants_visible = False  # 20
         self.m_score = 0  # 24
-        self.m_objcode = id(self)  # 28
-        popup.setObjectCode(self.m_objcode)
+        if popup.getObjectCode():
+            self.m_objcode = popup.getObjectCode()
+        else:
+            self.m_objcode = id(self)  # 28
+            popup.setObjectCode(self.m_objcode)
 
 
 class MarginCell:
@@ -192,32 +194,26 @@ class MarginManager(PandaNode):
 
         conflicts = {}
         for handle in self.m_popups.values():
-            group = handle.m_popup.m_group
-            if not group:
-                continue
+            popup = handle.m_popup
 
-            if group.getColorCode() != group.CCToonBuilding:
-                continue
-
-            name = group.getDisplayName()
-            if name in conflicts:
-                conflicts[name][0] += 1
-                conflicts[name][1].append(handle)
+            objcode = popup.getObjectCode()
+            if objcode in conflicts:
+                conflicts[objcode].append(handle)
             else:
-                conflicts[name] = [1, [handle]]
+                conflicts[objcode] = [handle]
 
-        for name, conflict in deepcopy(conflicts).iteritems():
-            if conflict[0] < 2:
-                del conflicts[name]
+        for objcode, conflict in conflicts.copy().iteritems():
+            if len(conflict) < 2:
+                del conflicts[objcode]
 
         for handle in self.m_popups.values():
             popup = handle.m_popup
             group = popup.m_group
             if group:
-                name = group.getDisplayName()
-                if name in conflicts:
+                objcode = group.getObjectCode()
+                if objcode in conflicts:
                     closer = True
-                    for conflict in conflicts[name][1]:
+                    for conflict in conflicts[objcode]:
                         if popup.getScore() < conflict.m_popup.getScore():
                             handle.m_wants_visible = False
                             if popup.isVisible():

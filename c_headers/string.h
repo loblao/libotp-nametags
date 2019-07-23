@@ -1,5 +1,6 @@
 typedef struct {
-    void* __ptr;
-    void* __data;
-    char __padding[20];
+    int _Alval;
+    char _Bx[16];
+    int _Mysize;
+    int _Myres;
 } __string;

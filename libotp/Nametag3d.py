@@ -185,7 +185,7 @@ class Nametag3d(Nametag, PandaNode):
             self.m_np_360 = self.m_group.copyNameTo(self.m_np_top)
             if self.m_has_draw_order:
                 bin = config.GetString('nametag-fixed-bin', 'fixed')
-                self.m_name_icon.setBin(bin, self.m_draw_order + 1)
+                self.m_group.m_name_icon.setBin(bin, self.m_draw_order + 1)
                 self.m_np_360.setBin(bin, self.m_draw_order + 2)
 
         self.m_np_360.setColor(v56)

@@ -40,8 +40,7 @@ typedef struct {
   void* field_260; // 260
   int m_state; // 264
   int m_culled; // 268
-  float m_time; // 272
-  void* field_276; // 276
+  double m_time; // 272
   __string m_text; // 280
   TextFont* m_font; // 308
   int m_type; // 312

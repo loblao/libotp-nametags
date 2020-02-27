@@ -14,7 +14,7 @@ typedef struct {
   void* m_ival; // 80
   MouseWatcherRegion* m_popup_region; // 84 [PopupMouseWatcherRegion*]
   int m_has_region; // 88
-  int m_seq_Nametag; // 92
+  int m_seq2d; // 92
   void* m_mouse_watcher; // 96
 
   void* field_100;

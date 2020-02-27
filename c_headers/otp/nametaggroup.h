@@ -20,7 +20,7 @@ typedef struct {
   int m_chat_flags; // 200
   int field_204; // 204
   double m_timeout; // 208
-  double m_timeout_start; // 216
+  double m_flashing_end; // 216
   __string m_stomp_text; // 224
   int m_stomp_chat_flags; // 252
   float m_stomp_delay; // 256
@@ -29,9 +29,9 @@ typedef struct {
   int field_268; // 268
   int m_chat_stomp; // 272
   int m_page_number; // 276
-  int m_has_timeout; // 280
+  int m_is_flashing; // 280
   __string m_unique_name; // 284
-  int m_code_object; // 312
+  int m_object_code; // 312
   int m_nametag3d_flag; // 316
   MarginManager* m_manager; // 320
   int m_region_seq; // 324
